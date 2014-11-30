@@ -116,26 +116,17 @@ describe('oath', function () {
           return num + 20;
         }, 5);
       };
-
-      /*step1(100).then(function(y){
-        expect(y).to.equal(110);
-        done();
-      })*/
       
 //step1 returns a promise, where step 2 is added as a "waiting function", and
 // the num+10 (i.e. 110) is the value passed to the waiting function.
 //step 3 is added as a "waiting function" for the "nested" promise. However, this step is  
 //never fired, because the promise is never resolved. We have essentially 3 promises here.
 //The promise created at step 2 never has "then" invoked.
-//usual pattern:
-
-//var 
 
 
       step1(100).then(step2).then(function (num) {
         console.log("step3", num);
         expect(num).to.equal(130);
-        console.log("numFinally", num);
         done();
       });
     });

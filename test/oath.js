@@ -8,7 +8,6 @@ oath.promisify = oath.promisify || function () {};
 
 var promiseTimeout = function (func, time) {
   var defer = oath.defer();
-  //console.log("defer", defer);
   setTimeout(function () {
     console.log("resolving", func);
     defer.resolve(func());
@@ -70,9 +69,9 @@ describe('oath', function () {
     });
   });
 
- /* describe('promisify', function () {
-    var bigEnough = 100;
-    var tooSmall = 10;
+ describe('promisify', function () {
+    var bigEnough = 1008;
+    var tooSmall = 8;
     var nodeStyle = function (num, callback) {
       setTimeout(function () {
         if (num > 50) {
@@ -82,9 +81,8 @@ describe('oath', function () {
         }
       });
     };
-
     var promised = oath.promisify(nodeStyle);
-    xit('should call then on success', function (done) {
+    it('should call then on success', function (done) {
       promised(bigEnough)
         .then(function (message) {
           expect(message).to.equal('That\'s a big number!');
@@ -92,7 +90,7 @@ describe('oath', function () {
         });
     });
 
-    xit('should call catch on error', function (done) {
+    it('should call catch on error', function (done) {
       promised(tooSmall)
         .catch(function (message) {
           expect(message).to.equal('Not big enough!');
@@ -100,7 +98,7 @@ describe('oath', function () {
         });
     });
   });
-*/
+
   describe('chaining', function () {
     it('should allow you to chain promises using then', function (done) {
       var step1 = function (num) {

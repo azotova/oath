@@ -135,6 +135,7 @@ describe('oath', function () {
       step1(100).then(step2).then(function (num) {
         console.log("step3", num);
         expect(num).to.equal(130);
+        console.log("numFinally", num);
         done();
       });
     });

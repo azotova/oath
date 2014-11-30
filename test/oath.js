@@ -10,7 +10,7 @@ var promiseTimeout = function (func, time) {
   var defer = oath.defer();
   //console.log("defer", defer);
   setTimeout(function () {
-    console.log("resolving")
+    console.log("resolving", func);
     defer.resolve(func());
   }, time);
   return defer.promise;
@@ -117,21 +117,26 @@ describe('oath', function () {
         }, 5);
       };
 
-      step1(100).then(function(y){
+      /*step1(100).then(function(y){
         expect(y).to.equal(110);
         done();
-      })
+      })*/
       
 //step1 returns a promise, where step 2 is added as a "waiting function", and
 // the num+10 (i.e. 110) is the value passed to the waiting function.
 //step 3 is added as a "waiting function" for the "nested" promise. However, this step is  
-//never fired, because the promise is never resolved.
+//never fired, because the promise is never resolved. We have essentially 3 promises here.
+//The promise created at step 2 never has "then" invoked.
+//usual pattern:
 
-      /*step1(100).then(step2).then(function (num) {
+//var 
+
+
+      step1(100).then(step2).then(function (num) {
         console.log("step3", num);
         expect(num).to.equal(130);
         done();
-      });*/
+      });
     });
 
     /*it('should jump directly to catch if an error is thrown during chaining', function (done) {

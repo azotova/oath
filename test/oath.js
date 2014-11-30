@@ -131,7 +131,7 @@ describe('oath', function () {
       });
     });
 
-    /*it('should jump directly to catch if an error is thrown during chaining', function (done) {
+    it('should jump directly to catch if an error is thrown during chaining', function (done) {
       var step1 = function (num) {
         return promiseTimeout(function () {
           return num + 10;
@@ -159,6 +159,6 @@ describe('oath', function () {
         expect(didItRun).to.equal(false);
         done();
       });
-    });*/
+    });
   });
 });

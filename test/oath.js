@@ -17,7 +17,7 @@ var promiseTimeout = function (func, time) {
 
 describe('oath', function () {
   describe('Promise', function () {
-    describe('.then', function () {
+    /*describe('.then', function () {
       it('should call then on a promise resolution', function (done) {
         promiseTimeout(function () {}, 5)
           .then(done);
@@ -35,9 +35,9 @@ describe('oath', function () {
             done();
           });
       });
-    });
+    });*/
 
-   describe('.catch', function () {
+   /*describe('.catch', function () {
       it('should call catch on a rejection', function (done) {
         var failingPromise = function () {
           var defer = oath.defer();
@@ -67,9 +67,9 @@ describe('oath', function () {
           });
       });
     });
-  });
+  });*/
 
- describe('promisify', function () {
+ /*describe('promisify', function () {
     var bigEnough = 1008;
     var tooSmall = 8;
     var nodeStyle = function (num, callback) {
@@ -97,7 +97,7 @@ describe('oath', function () {
           done();
         });
     });
-  });
+  });*/
 
   describe('chaining', function () {
     it('should allow you to chain promises using then', function (done) {
@@ -127,9 +127,47 @@ describe('oath', function () {
         expect(num).to.equal(130);
         done();
       });
+
     });
 
-    it('should jump directly to catch if an error is thrown during chaining', function (done) {
+    // step1: ind = 1, value = undef;
+    // first then creates: ind = 2, value = 1;
+    // second then creates: ind = 3, value = 2;
+    // in 5ms the first promise (ind = 1) is resolved;
+    // it triggers the step2 function, which creates a new promise: ind = 4, value = undef;
+    // the promises with ind = 2, 3 never get resolved, because the resolve method is not invoked;
+    // when the promise with ind = 4 is resolved, it never finds the appropriate function to execute.
+
+    /*it('should allow you to chain promises using then twice', function (done) {
+      var step1 = function (num) {
+        return promiseTimeout(function () {
+          console.log("step1", num+15);
+          return num + 15;
+        }, 5);
+      };
+
+      var step2 = function (num) {
+        return promiseTimeout(function () {
+          console.log("step2", num+25);
+          return num + 25;
+        }, 5);
+      };
+
+      var step3 = function (num) {
+        return promiseTimeout(function () {
+          console.log("step3", num+35);
+          return num + 35;
+        }, 5);
+      };
+      
+      step1(250).then(step2).then(step3).then(function (num) {
+        console.log("step4", num);
+        expect(num).to.equal(325);
+        done();
+      });
+    });*/
+
+    /*it('should jump directly to catch if an error is thrown during chaining', function (done) {
       var step1 = function (num) {
         return promiseTimeout(function () {
           return num + 10;
@@ -156,7 +194,8 @@ describe('oath', function () {
         expect(err).to.equal('Oops!');
         expect(didItRun).to.equal(false);
         done();
-      });
+      });*/
     });
   });
 });
+

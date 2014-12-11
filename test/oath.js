@@ -17,7 +17,7 @@ var promiseTimeout = function (func, time) {
 
 describe('oath', function () {
   describe('Promise', function () {
-    /*describe('.then', function () {
+    describe('.then', function () {
       it('should call then on a promise resolution', function (done) {
         promiseTimeout(function () {}, 5)
           .then(done);
@@ -35,7 +35,7 @@ describe('oath', function () {
             done();
           });
       });
-    });*/
+    });
 
    /*describe('.catch', function () {
       it('should call catch on a rejection', function (done) {
@@ -66,8 +66,9 @@ describe('oath', function () {
             done();
           });
       });
-    });
-  });*/
+    });*/
+  });
+
 
  /*describe('promisify', function () {
     var bigEnough = 1008;
@@ -138,7 +139,7 @@ describe('oath', function () {
     // the promises with ind = 2, 3 never get resolved, because the resolve method is not invoked;
     // when the promise with ind = 4 is resolved, it never finds the appropriate function to execute.
 
-    /*it('should allow you to chain promises using then twice', function (done) {
+    it('should allow you to chain promises using then twice', function (done) {
       var step1 = function (num) {
         return promiseTimeout(function () {
           console.log("step1", num+15);
@@ -165,7 +166,7 @@ describe('oath', function () {
         expect(num).to.equal(325);
         done();
       });
-    });*/
+    });
 
     /*it('should jump directly to catch if an error is thrown during chaining', function (done) {
       var step1 = function (num) {
@@ -195,7 +196,6 @@ describe('oath', function () {
         expect(didItRun).to.equal(false);
         done();
       });*/
-    });
   });
 });
 

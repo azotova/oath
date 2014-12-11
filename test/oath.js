@@ -70,7 +70,7 @@ describe('oath', function () {
   });
 
 
- /*describe('promisify', function () {
+  describe('promisify', function () {
     var bigEnough = 1008;
     var tooSmall = 8;
     var nodeStyle = function (num, callback) {
@@ -98,7 +98,7 @@ describe('oath', function () {
           done();
         });
     });
-  });*/
+  });
 
   describe('chaining', function () {
     it('should allow you to chain promises using then', function (done) {

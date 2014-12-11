@@ -37,7 +37,7 @@ describe('oath', function () {
       });
     });
 
-   /*describe('.catch', function () {
+   describe('.catch', function () {
       it('should call catch on a rejection', function (done) {
         var failingPromise = function () {
           var defer = oath.defer();
@@ -66,7 +66,7 @@ describe('oath', function () {
             done();
           });
       });
-    });*/
+    });
   });
 
 
